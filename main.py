@@ -31,7 +31,7 @@ else:
 cap.set(3, 800)  # width
 cap.set(4, 480)  # height
 
-## setup mediapipe
+# setup mediapipe
 with mp_pose.Pose(min_detection_confidence=0.5,
                   min_tracking_confidence=0.5) as pose:
 
@@ -42,12 +42,12 @@ with mp_pose.Pose(min_detection_confidence=0.5,
         # result_screen = np.zeros((250, 400, 3), np.uint8)
 
         frame = cv2.resize(frame, (800, 480), interpolation=cv2.INTER_AREA)
-        ## recolor frame to RGB
+        # recolor frame to RGB
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         frame.flags.writeable = False
-        ## make detection
+        # make detection
         results = pose.process(frame)
-        ## recolor back to BGR
+        # recolor back to BGR
         frame.flags.writeable = True
         frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
@@ -60,7 +60,7 @@ with mp_pose.Pose(min_detection_confidence=0.5,
 
         score_table(args["exercise_type"], counter, status)
 
-        ## render detections (for landmarks)
+        # render detections (for landmarks)
         mp_drawing.draw_landmarks(
             frame,
             results.pose_landmarks,
