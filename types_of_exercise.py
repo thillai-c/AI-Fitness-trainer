@@ -22,7 +22,6 @@ class TypeOfExercise(BodyPartAngle):
 
         return [counter, status]
 
-    # def push_up_method_2():
 
     def pull_up(self, counter, status):
         nose = detection_body_part(self.landmarks, "NOSE")
