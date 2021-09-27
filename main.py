@@ -11,21 +11,22 @@ ap.add_argument("exercise_type",
                 type=str,
                 help='Type of activity to do')
 
-# ap.add_argument("-vs",
-#                 "--video_source",
-#                 type=str,
-#                 help='Type of activity to do',
-#                 required=False)
+ap.add_argument("video_source",
+                type=str,
+                help='Type of activity to do')
+                
+                
+                
 args = vars(ap.parse_args())
 
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
 
-# if args["video_source"] is not None:
-#     cap = cv2.VideoCapture(args["video_source"])
-# else:
-cap = cv2.VideoCapture(0)  # webcam
+if args["video_source"] is not None:
+    cap = cv2.VideoCapture(args["video_source"])
+else:
+    cap = cv2.VideoCapture(0)  # webcam
 
 cap.set(3, 800)  # width
 cap.set(4, 480)  # height
