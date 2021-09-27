@@ -5,7 +5,7 @@ import mediapipe as mp
 from body_part_angle import BodyPartAngle
 from types_of_exercise import TypeOfExercise
 
-## setup agrparse
+
 ap = argparse.ArgumentParser()
 ap.add_argument("-t",
                 "--exercise_type",
@@ -19,11 +19,10 @@ ap.add_argument("-vs",
                 required=False)
 args = vars(ap.parse_args())
 
-## drawing body
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
-## setting the video source
+
 if args["video_source"] is not None:
     cap = cv2.VideoCapture(args["video_source"])
 else:
