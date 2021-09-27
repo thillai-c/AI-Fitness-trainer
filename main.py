@@ -7,26 +7,25 @@ from types_of_exercise import TypeOfExercise
 
 
 ap = argparse.ArgumentParser()
-ap.add_argument("-t",
-                "--exercise_type",
+ap.add_argument("exercise_type",
                 type=str,
-                help='Type of activity to do',
-                required=True)
-ap.add_argument("-vs",
-                "--video_source",
-                type=str,
-                help='Type of activity to do',
-                required=False)
+                help='Type of activity to do')
+
+# ap.add_argument("-vs",
+#                 "--video_source",
+#                 type=str,
+#                 help='Type of activity to do',
+#                 required=False)
 args = vars(ap.parse_args())
 
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
 
-if args["video_source"] is not None:
-    cap = cv2.VideoCapture(args["video_source"])
-else:
-    cap = cv2.VideoCapture(0)  # webcam
+# if args["video_source"] is not None:
+#     cap = cv2.VideoCapture(args["video_source"])
+# else:
+cap = cv2.VideoCapture(0)  # webcam
 
 cap.set(3, 800)  # width
 cap.set(4, 480)  # height
@@ -58,7 +57,7 @@ with mp_pose.Pose(min_detection_confidence=0.5,
         except:
             pass
 
-        score_table(args["exercise_type"], counter, status)
+        frame = score_table(args["exercise_type"], frame, counter, status)
 
         # render detections (for landmarks)
         mp_drawing.draw_landmarks(

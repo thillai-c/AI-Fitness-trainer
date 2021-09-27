@@ -6,8 +6,6 @@ import cv2
 
 mp_pose = mp.solutions.pose
 
-
-
 def calculate_angle(a, b, c):
     a = np.array(a)  
     b = np.array(b)  
@@ -43,13 +41,13 @@ def detection_body_parts(landmarks):
     return body_parts
 
 
-def score_table(exercise, counter, status):
-    score_table = cv2.imread("./images/score_table.png")
-    cv2.putText(score_table, "Activity : " + exercise.replace("-", " "),
+def score_table(exercise, frame , counter, status):
+    cv2.putText(frame, "Activity : " + exercise.replace("-", " "),
                 (10, 65), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (182, 158, 128), 2,
                 cv2.LINE_AA)
-    cv2.putText(score_table, "Counter : " + str(counter), (10, 100),
+    cv2.putText(frame, "Counter : " + str(counter), (10, 100),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (182, 158, 128), 2, cv2.LINE_AA)
-    cv2.putText(score_table, "Status : " + str(status), (10, 135),
+    cv2.putText(frame, "Status : " + str(status), (10, 135),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (182, 158, 128), 2, cv2.LINE_AA)
-    cv2.imshow("Score Table", score_table)
+    return frame
+    
