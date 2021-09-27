@@ -17,7 +17,6 @@ def calculate_angle(a, b, c):
               np.arctan2(a[1] - b[1], a[0] - b[0])
     angle = np.abs(radians * 180.0 / np.pi)
 
-    # check cord sys area
     if angle > 180.0:
         angle = 360 - angle
 
