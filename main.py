@@ -8,12 +8,12 @@ from types_of_exercise import TypeOfExercise
 ## setup agrparse
 ap = argparse.ArgumentParser()
 ap.add_argument("-t",
-                "--pull-up",
+                "--exercise_type",
                 type=str,
                 help='Type of activity to do',
                 required=True)
 ap.add_argument("-vs",
-                "--",
+                "--video_source",
                 type=str,
                 help='Type of activity to do',
                 required=False)
