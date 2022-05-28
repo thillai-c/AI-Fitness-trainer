@@ -14,6 +14,12 @@ class BodyPartAngle:
         l_elbow = detection_body_part(self.landmarks, "LEFT_ELBOW")
         l_wrist = detection_body_part(self.landmarks, "LEFT_WRIST")
         return calculate_angle(l_shoulder, l_elbow, l_wrist)
+    
+    def angle_of_the_right_arm(self):
+        r_shoulder = detection_body_part(self.landmarks, "RIGHT_SHOULDER")
+        r_elbow = detection_body_part(self.landmarks, "RIGHT_ELBOW")
+        r_wrist = detection_body_part(self.landmarks, "RIGHT_WRIST")
+        return calculate_angle(r_shoulder, r_elbow, r_wrist)
 
     
 
