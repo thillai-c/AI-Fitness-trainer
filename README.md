@@ -53,3 +53,13 @@ A squat is a strength exercise in which the trainee lowers their hips from a sta
 ```
 python main.py -t squat -vs videos/squat.mp4
 ```
+
+For dynamically detecting your realtime movements using your webcam , use these commands below:
+```
+python main.py -t sit-up
+# or python main.py -t pull-up
+# or python main.py -t push-up
+# or python main.py -t squat
+# or python main.py -t walk
+```
+
