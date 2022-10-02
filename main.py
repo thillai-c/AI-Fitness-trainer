@@ -7,14 +7,17 @@ from types_of_exercise import TypeOfExercise
 
 
 ap = argparse.ArgumentParser()
-ap.add_argument("exercise_type",
+ap.add_argument("-t",
+                "--exercise_type",
                 type=str,
-                help='Type of activity to do')
-
-ap.add_argument("video_source",
+                help='Type of activity to do',
+                required=True)
+ap.add_argument("-vs",
+                "--video_source",
                 type=str,
-                help='Type of activity to do')
-                
+                help='Type of activity to do',
+                required=False)
+args = vars(ap.parse_args())
                 
                 
 args = vars(ap.parse_args())
