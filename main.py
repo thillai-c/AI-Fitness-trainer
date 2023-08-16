@@ -27,7 +27,7 @@ mp_pose = mp.solutions.pose
 
 
 if args["video_source"] is not None:
-    cap = cv2.VideoCapture("Exercise Videos/" + args["video_source"])
+    cap = cv2.VideoCapture(args["video_source"])
 else:
     cap = cv2.VideoCapture(0)  # webcam
 
