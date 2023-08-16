@@ -43,6 +43,9 @@ with mp_pose.Pose(min_detection_confidence=0.5,
     while cap.isOpened():
         ret, frame = cap.read()
         # result_screen = np.zeros((250, 400, 3), np.uint8)
+        if not ret:
+            print("Video or webcam is over")
+            break
 
         frame = cv2.resize(frame, (800, 480), interpolation=cv2.INTER_AREA)
         # recolor frame to RGB
